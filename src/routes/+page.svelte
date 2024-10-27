@@ -9,6 +9,7 @@
         let error = '';
         let success = false;
         let role = '';
+        let response;
       
         const handleSubmit = async (event) => {
           event.preventDefault();
@@ -20,14 +21,12 @@
               mode: 'cors',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ login, password })
-            }).then((value) => {
-              role = value
-              console.log(role)
             });
 
 
       
             if (response.ok) {
+              console.log(response.data)
               // Cookies.set(`role=${role}`)
               success = true;
               error = '';
